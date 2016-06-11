@@ -2,14 +2,14 @@
 
 **Framework used : PHP on Apache**  
 **Database 	 : MySQL**  
-**Server	 : Apache2**  
+**Server	 : Apache**  
 
-Below are the links for downloading all the necessary software required to run the scripts :
+####Necessary Software
 
-####For Windows
 + Install WampServer. Wamp means Apache, MySQL and PHP on Windows.[Click here](http://www.wampserver.com/en/) to download WampServer. It contains all the links and a step by step guide about the installation and functionalities.
 
 The details about the database and the tables used are as follows :
+
 + The user is 'root'@'localhost'.
 + There is no Password .
 + The database name is 'spider16task2'.
@@ -22,10 +22,8 @@ The details about the database and the tables used are as follows :
   `ADDRESS` varchar(100) DEFAULT NULL,  
   `ABOUT ME` text,  
   `PASSCODE` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`ROLL_NO`)  
+   PRIMARY KEY (`ROLL_NO`)  
 ) 
-
-The **mysqli** library has been used for connecting to the database.
 
 ####How to run the scripts
 + Clone this repository into the folder you want. 
