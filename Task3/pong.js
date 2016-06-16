@@ -132,6 +132,9 @@ ball =
 			player1.score += isplayer ? 0 : 1;
 			player2.score += isplayer ? 1 : 0;
 			
+			document.getElementById("red").innerHTML = (player1.score < 10)?'0'+ player1.score : player1.score;
+			document.getElementById("green").innerHTML = (player2.score < 10)?'0'+ player2.score : player2.score;
+			
 			if(player1.score == 15)
 			{
 				alert("Player 1 wins 15 to "+ player2.score);
@@ -225,22 +228,11 @@ function draw()
 	ball.draw();
 	player1.draw();
 	player2.draw();
-	// draw the net
-	var w = 4;
-	var x = (WIDTH - w)*0.5;
-	var y = 0;
-	var step = HEIGHT/20; // how many net segments
-	while (y < HEIGHT) 
-	{
-		ctx.fillStyle = "#fff";
-		ctx.fillRect(x, y+step*0.25, w, step*0.5);
-		y += step;
-	}
 	//var t = player1.score + " - " + player2.score;
 	//ctx.fillText(t, canvas.width/2 - ctx.measureText(t).width/2, 100);
 	ctx.restore();
-	document.getElementById("red").innerHTML = (player1.score < 10)?'0'+ player1.score : player1.score;
-	document.getElementById("green").innerHTML = (player2.score < 10)?'0'+ player2.score : player2.score;
+	/*document.getElementById("red").innerHTML = (player1.score < 10)?'0'+ player1.score : player1.score;
+	document.getElementById("green").innerHTML = (player2.score < 10)?'0'+ player2.score : player2.score;*/
 	
 	/*if(player1.score == 15)
 		alert("Player 1 wins 15 to "+ player2.score);
@@ -294,6 +286,7 @@ function start()
 		vel: null,
 		side:  20,
 		speed: 10,
+		
 		/**
 		* Draw the ball to the canvas
 	 	*/
@@ -342,17 +335,6 @@ function start()
 		ball.draw();
 		player1.draw();
 		player2.draw();
-		// draw the net
-		var w = 4;
-		var x = (WIDTH - w)*0.5;
-		var y = 0;
-		var step = HEIGHT/20; // how many net segments
-		while (y < HEIGHT) 
-		{
-			ctx.fillStyle = "#fff";
-			ctx.fillRect(x, y+step*0.25, w, step*0.5);
-			y += step;
-		}
 		ctx.restore();
 	}
 	main2();
