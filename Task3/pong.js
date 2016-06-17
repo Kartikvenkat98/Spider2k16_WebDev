@@ -8,6 +8,8 @@ Down = 40,
 W = 87,
 S = 83,
 
+res,
+
 canvas,
 ctx,
 keystate,
@@ -171,6 +173,9 @@ function main()
 {
 	// create, initiate and append game canvas
 	canvas = document.createElement("canvas");
+	window.cancelAnimationFrame(res);
+	document.getElementById("red").innerHTML = '00';
+	document.getElementById("green").innerHTML = '00';
 	canvas.width = WIDTH;
 	canvas.height = HEIGHT;
 	ctx = canvas.getContext("2d");
@@ -190,11 +195,12 @@ function main()
 	// game loop function
 	var loop = function() 
 	{
+		ctx.clearRect(0,0,WIDTH,HEIGHT);
 		update();
 		draw();
-		window.requestAnimationFrame(loop, canvas);
+		res = window.requestAnimationFrame(loop, canvas);
 	};
-	window.requestAnimationFrame(loop, canvas);
+	res = window.requestAnimationFrame(loop, canvas);
 }
 /**
  * Initatite game objects and set start positions
@@ -250,6 +256,7 @@ function start()
 	HEIGHT = 500,
 	canvas,
 	ctx,
+	res,
 
 	player1 = 
 	{
@@ -286,7 +293,6 @@ function start()
 		vel: null,
 		side:  20,
 		speed: 10,
-		
 		/**
 		* Draw the ball to the canvas
 	 	*/
@@ -303,6 +309,9 @@ function start()
 	{
 	// create, initiate and append game canvas
 		canvas = document.createElement("canvas");
+		window.cancelAnimationFrame(res);
+		document.getElementById("red").innerHTML = '00';
+		document.getElementById("green").innerHTML = '00';
 		canvas.width = WIDTH;
 		canvas.height = HEIGHT;
 		ctx = canvas.getContext("2d");
@@ -312,10 +321,11 @@ function start()
 		// game loop function
 		var loop = function() 
 		{
+			ctx.clearRect(0,0,WIDTH,HEIGHT);
 			draw();
-			window.requestAnimationFrame(loop, canvas);
+			res = window.requestAnimationFrame(loop, canvas);
 		};
-		window.requestAnimationFrame(loop, canvas);
+		res = window.requestAnimationFrame(loop, canvas);
 	}
 	/**
  	* Initatite game objects and set start positions
